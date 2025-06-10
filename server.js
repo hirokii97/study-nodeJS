@@ -2,10 +2,13 @@
 import { createServer } from "http";
 
 const server = createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("hello world");
+  if (req.url === "/hello") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("hello world");
+  } else {
+    res.writeHead(404, { "content-Type": "text/plain" });
+    res.end("bye");
+  }
 });
 
-server.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
-});
+server.listen(3000);
