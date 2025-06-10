@@ -7,7 +7,7 @@ const server = createServer((req, res) => {
     res.end("hello world");
   } else if (req.url === "/api/user") {
     const user = { id: 1, name: "Hiroki" };
-    res.writeHead(200, { "Content-type": "text/json" });
+    res.writeHead(200, { "Content-type": "application/json" });
     res.end(JSON.stringify(user));
   } else {
     res.writeHead(404, { "Content-Type": "text/plain" });
